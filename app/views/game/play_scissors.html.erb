@@ -1,1 +1,40 @@
-<h1>You played scissors!</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="row col-md-offset-2 col-md-8">
+      <div class="btn-group btn-group-justified">
+        <a href="/rock" class="btn btn-block btn-primary">Play Rock
+        </a>
+        <a href="/paper" class="btn btn-block btn-primary">Play Paper
+        </a>
+        <a href="/scissors" class="btn btn-block btn-primary">Play Scissors
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-offset-2 col-md-4">
+      <h1>You played <%= @played %>!</h1>
+
+
+    </div>
+    <div class="col-md-4">
+      <h2>The computer played <%= @choice %> and therefore </h2>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+      <div class="well text-center">
+        <h1>
+          <span class="label label-danger">
+            <%= @victory %>
+          </span>
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>

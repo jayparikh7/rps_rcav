@@ -6,35 +6,23 @@ class GameController < ApplicationController
     return throw_down
   end
 
-  #
-  # if throw_down < rock
-  #   outcome = "Fatality - You Lose"
-  # elsif throw_down == rock
-  #   outcome = "Lame - Tie"
-  # else
-  #   outcome = "Yay - Win!"
-  # end
-  #
-  # @your_output = selection + " " + outcome
-
-
   def play_rock
-    your_hand = 1
+    your_hand = "Rock"
     throw_down = roll_die
     if throw_down == 0
-      selection = "scissor"
-      display = "You Lose"
+      selection = "Scissor"
+      display = "You Win!"
     elsif throw_down == 1
-      selection = "rock"
+      selection = "Rock"
       display = "You Tie!"
     else
-      selection = "paper"
-      display = "You Win!"
+      selection = "Paper"
+      display = "You Lose!"
     end
 
-
+    @played = your_hand
+    @choice = selection
     @victory = display
-    @computer = selection
 
 
     render("play_rock.html.erb")
@@ -42,14 +30,45 @@ class GameController < ApplicationController
   end
 
   def play_paper
-    first_number = 6
-    second_number = 7
-    @final_number = first_number * second_number
+    your_hand = "Paper"
+    throw_down = roll_die
+    if throw_down == 0
+      selection = "Scissor"
+      display = "You Lose!"
+    elsif throw_down == 2
+      selection = "Rock"
+      display = "You Win!"
+    else
+      selection = "Paper"
+      display = "You Tie!"
+    end
+
+    @played = your_hand
+    @choice = selection
+    @victory = display
+
     render("play_paper.html.erb")
 
   end
 
   def play_scissors
+    your_hand = "Scissors"
+    throw_down = roll_die
+    if throw_down == 1
+      selection = "Rock"
+      display = "You Lose!"
+    elsif throw_down == 2
+      selection = "Paper"
+      display = "You Win!"
+    else
+      selection = "Scissors"
+      display = "You Tie!"
+    end
+
+    @played = your_hand
+    @choice = selection
+    @victory = display
+
     render("play_scissors.html.erb")
 
   end
